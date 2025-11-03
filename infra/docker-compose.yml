@@ -1,0 +1,80 @@
+# ==========================================================
+# 🧠 BACKEND - FastAPI + Supabase + AI
+# ==========================================================
+services:
+  backend:
+    container_name: restaurant-analytics-backend
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    ports:
+      - "${FASTAPI_PORT}:8000"
+    # ✅ Carrega variáveis do .env na pasta infra (mesmo dir deste compose)
+    env_file:
+      - ./.env
+    # ✅ Passa DB_MODE do ambiente para dentro do container (padrão: LOCAL)
+    environment:
+      - DB_MODE=${DB_MODE:-LOCAL}
+    volumes:
+      - ../backend:/app
+      - ../backend/temp_files:/app/temp_files
+      - ../data:/app/data                 # ✅ monta a pasta data no contêiner
+    depends_on:
+      db:
+        condition: service_healthy        # ✅ backend só inicia após o DB estar pronto
+    networks:
+      - restaurant-net
+    restart: unless-stopped
+
+  # ==========================================================
+  # 💻 FRONTEND - HTML/CSS/JS via Nginx
+  # ==========================================================
+  frontend:
+    container_name: restaurant-analytics-frontend
+    image: nginx:latest
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT}:80"
+    volumes:
+      - ../frontend:/usr/share/nginx/html:ro
+      - ../frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - restaurant-net
+    restart: unless-stopped
+
+  # ==========================================================
+  # 🗄️ DATABASE - PostgreSQL (serviço interno no compose)
+  # ==========================================================
+  db:
+    container_name: restaurant-analytics-db
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-appdb}
+    # ❗ Se não precisa acessar do host, NÃO exponha a porta
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - restaurant-net
+    restart: unless-stopped
+    healthcheck:                         # ✅ garante que o DB esteja pronto antes do backend
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+
+# ==========================================================
+# 🌐 REDE COMPARTILHADA ENTRE BACKEND, FRONTEND E DB
+# ==========================================================
+networks:
+  restaurant-net:
+    driver: bridge
+
+# ==========================================================
+# 💾 VOLUMES PERSISTENTES
+# ==========================================================
+volumes:
+  pgdata:

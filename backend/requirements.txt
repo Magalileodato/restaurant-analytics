@@ -1,0 +1,45 @@
+# ============================================================
+# 📦 REQUIREMENTS PARA RESTAURANT ANALYTICS MVP
+# ============================================================
+
+# FastAPI: Framework principal para API REST
+fastapi==0.103.2
+
+# Uvicorn: Servidor ASGI para rodar FastAPI
+uvicorn[standard]==0.23.2
+
+# SQLAlchemy: ORM para PostgreSQL
+sqlalchemy==2.0.25
+
+# Psycopg2-binary: Driver PostgreSQL para Python
+psycopg2-binary==2.9.9
+
+# python-dotenv: Gerenciamento de variáveis de ambiente
+python-dotenv==1.0.1
+
+# Pandas: Manipulação e análise de dados
+pandas==2.2.3
+
+# Jinja2: Templates para HTML (caso necessário no frontend)
+jinja2==3.1.4
+
+# ============================================================
+# 🔧 Dependências adicionais recomendadas
+# ============================================================
+
+# Starlette é base do FastAPI (instala junto, mas bom fixar versão)
+starlette==0.27.0
+
+# Pydantic: validação e tipagem (FastAPI usa internamente)
+pydantic==2.4.2
+
+# Alembic (opcional): migrações de banco de dados (útil para evoluções futuras)
+alembic==1.13.1
+
+# ============================================================
+# 🔧 Observações
+# ============================================================
+# - Use 'pip install -r backend/requirements.txt' com o venv ativo.
+# - Mantém compatibilidade total com os scripts do backend e
+#   com o generate_sales_sqlalchemy.py.
+# ============================================================

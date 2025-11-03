@@ -1,0 +1,282 @@
+/* ============================================================
+   🎨 ESTILOS GERAIS - RESTAURANT ANALYTICS DASHBOARD
+   Desenvolvido por Magali Leodato (2025)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   🌍 RESET E CONFIGURAÇÕES BÁSICAS
+   ------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a; /* Azul escuro elegante */
+  color: #f1f5f9;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   🧭 CABEÇALHO / NAVBAR
+   ============================================================ */
+.navbar {
+  background: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.menu a {
+  color: #e2e8f0;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #38bdf8;
+}
+
+/* ============================================================
+   🏠 SEÇÃO HERO / INTRODUÇÃO
+   ============================================================ */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+  margin-right: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.hero-text h1 span {
+  color: #38bdf8;
+}
+
+.hero-text p {
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: #38bdf8;
+  color: #0f172a;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0ea5e9;
+}
+
+.hero-img img {
+  width: 300px;
+  max-width: 100%;
+  filter: drop-shadow(0px 5px 20px rgba(56, 189, 248, 0.3));
+}
+
+/* ============================================================
+   📈 DASHBOARD / MÉTRICAS
+   ============================================================ */
+.dashboard {
+  padding: 3rem 1.5rem;
+  background: #0f172a;
+  text-align: center;
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #38bdf8;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.2);
+}
+
+.card h3 {
+  color: #f8fafc;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+/* ============================================================
+   📊 GRÁFICO (CHART)
+   ============================================================ */
+.chart-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   🙋‍♀️ SEÇÃO SOBRE
+   ============================================================ */
+.about {
+  padding: 4rem 2rem;
+  background: #1e293b;
+  text-align: center;
+}
+
+.about h2 {
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: #cbd5e1;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   📞 CONTATO
+   ============================================================ */
+.contact {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  color: #0f172a;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.contact .btn {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.contact .btn:hover {
+  background: #1e293b;
+}
+
+/* ============================================================
+   ⚙️ RODAPÉ
+   ============================================================ */
+.footer {
+  background: #0f172a;
+  text-align: center;
+  padding: 1.5rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* ============================================================
+   📱 RESPONSIVIDADE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin-right: 0;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu a {
+    margin: 0.5rem;
+    display: inline-block;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
