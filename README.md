@@ -27,11 +27,11 @@ A solução permite:
 
 > **Novo!** Seção para o link do vídeo de apresentação do projeto.
 >
-> Substitua `VIDEO_ID` abaixo pelo ID do seu vídeo no YouTube.
 
-[🔗 Assistir no YouTube](https://www.youtube.com/watch?v=VIDEO_ID)
 
-[![Assista à apresentação no YouTube](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+[🔗 Assistir no YouTube](https://youtu.be/4tPPjQEpcfQ)
+
+
 
 ## 🗂 Estrutura do Projeto
 
